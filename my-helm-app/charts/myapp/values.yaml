@@ -10,9 +10,9 @@ service:
   port: 80
 
 config:
-  message: "Welcome to the Helm + Argo CD Demo!"
+  message: "Welcome to Helm + Argo CD Demo"
 
-  secret:
-  name: ""
-  env: ""
+secret:
+  name: myapp-secret
+  env: dev    # dev | uat | prod
 
