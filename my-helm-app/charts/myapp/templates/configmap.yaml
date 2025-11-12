@@ -4,3 +4,4 @@ metadata:
   name: {{ .Chart.Name }}-config
 data:
   message: {{ .Values.config.message | quote }}
+
