@@ -1,34 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Chart.Name }}
-  labels:
-    app: {{ .Chart.Name }}
+  name: {{ .Release.Name }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: {{ .Chart.Name }}
+      app: {{ .Release.Name }}
   template:
     metadata:
       labels:
-        app: {{ .Chart.Name }}
+        app: {{ .Release.Name }}
     spec:
       containers:
-        - name: {{ .Chart.Name }}
+        - name: {{ .Release.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          ports:
-            - containerPort: {{ .Values.service.port }}
-{{- if and .Values.secret (hasKey .Values.secret "name") (ne .Values.secret.name "") }}
           envFrom:
             - secretRef:
                 name: {{ .Values.secret.name }}
-{{- end }}
-          volumeMounts:
-            - name: config-volume
-              mountPath: /etc/config
-      volumes:
-        - name: config-volume
-          configMap:
-            name: {{ .Chart.Name }}-config
