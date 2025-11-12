@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: {{ .Release.Name }}
   annotations:
-    argocd.argoproj.io/sync-wave: "1"   # ensures secret is applied first
+    argocd.argoproj.io/sync-wave: "1"  # secret first
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
