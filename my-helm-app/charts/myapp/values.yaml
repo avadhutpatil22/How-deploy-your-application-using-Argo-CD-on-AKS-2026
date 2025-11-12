@@ -11,3 +11,8 @@ service:
 
 config:
   message: "Welcome to the Helm + Argo CD Demo!"
+
+  secret:
+  name: ""
+  env: ""
+
