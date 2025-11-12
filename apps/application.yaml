@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: 'https://github.com/<your-username>/helm-argocd-demo.git'
+    repoURL: 'https://github.com/avadhutpatil22/helm-charts-agrocd'
     targetRevision: HEAD
     path: helm/nginx-app
     helm:
@@ -19,3 +19,4 @@ spec:
     automated:
       prune: true
       selfHeal: true
+
