@@ -20,10 +20,10 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - containerPort: {{ .Values.service.port }}
-{{- if .Values.secret.name }}
+{{- if (default "" .Values.secret.name) | quote | ne "" }}
           envFrom:
             - secretRef:
-                name: {{ .Values.secret.name }}
+                name: {{ default "" .Values.secret.name }}
 {{- end }}
           volumeMounts:
             - name: config-volume
