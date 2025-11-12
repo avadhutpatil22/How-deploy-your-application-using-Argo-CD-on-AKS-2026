@@ -20,9 +20,11 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - containerPort: {{ .Values.service.port }}
+{{- if .Values.secret.name }}
           envFrom:
             - secretRef:
                 name: {{ .Values.secret.name }}
+{{- end }}
           volumeMounts:
             - name: config-volume
               mountPath: /etc/config
