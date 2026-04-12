@@ -9,7 +9,7 @@ spec:
   source:
     repoURL: https://github.com/avadhutpatil22/How-deploy-your-application-using-Argo-CD-on-AKS-2026
     targetRevision: main
-    path: values.yaml
+    path: my-helm-app/charts/myapp
 
   destination:
     server: https://kubernetes.default.svc
